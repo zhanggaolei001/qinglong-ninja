@@ -1,0 +1,16 @@
+version: "3"
+services:
+  qinglong:
+    image: gcdd1993/qinglong-ninja:latest
+    container_name: qinglong
+    restart: unless-stopped
+    tty: true
+    ports:
+      - 5700:5700
+      - 5701:5701
+    environment:
+      - ENABLE_HANGUP=true
+      - ENABLE_WEB_PANEL=true
+    volumes:
+      - ./config:/ql/config
+      - ./db:/ql/db
